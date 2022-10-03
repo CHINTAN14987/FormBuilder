@@ -1,6 +1,6 @@
 .appointmentDetails{
   border: 1px solid silver;
-  padding: 20px 10px;
+  padding: 18px 10px;
   border-radius: 10px;
   margin: 10px 0;
 }
@@ -20,6 +20,11 @@
   font-weight: 500;
   font-size: 18px;
 }
+.appointmentDetails:nth-child(3){
+  font-weight: 500;
+  font-size: 18px;
+  margin: 0;
+}
 
 .appointmentDetails:nth-child(8), .appointmentDetails:nth-child(9){
   display: none;
@@ -31,7 +36,7 @@
   margin: 0;
 }
 .cardData{
-margin: auto;
+
 display: flex;
 flex-direction: column;
 min-height: 20rem;}
@@ -59,7 +64,7 @@ min-height: 20rem;}
   display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center;min-height: 10rem;
 }
 .wrapper{
   display: flex;
@@ -71,8 +76,8 @@ min-height: 20rem;}
 }
 .Col1{
   background-color: none;
-  height: 20rem;
-  
+  height: fit-content;
+  flex:0.5;
   border:1px solid silver;
   padding: 10px 20px;
 }
@@ -96,6 +101,6 @@ font-size: 20px;
   border: 1px solid silver;
   border-radius: 20px;
   padding: 10px 20px;
-  width: 30rem;
+ flex:1
   
 }

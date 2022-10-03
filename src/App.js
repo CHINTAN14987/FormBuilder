@@ -19,34 +19,27 @@ function App() {
           id: "3",
           title: "Box",
           image: { image },
+          type: "Box",
         },
         {
           id: "4",
           title: "Circle",
           image: "",
-          style: {
-            borderRadius: "50%",
-            backgroundColor: "black",
-            color: "white",
-          },
+          type: "Circle",
         },
         {
           id: "5",
           title: "Cut Edges Box",
+          type: "EdgeBox",
           image: "",
-          style: {
-            borderRadius: "40%",
-            backgroundColor: "black",
-            color: "yellow",
-          },
         },
+        { id: "6", title: "Triangle", image: "", type: "Triangle" },
       ],
     },
   ];
 
   const [taskList, setTasks] = useState(initialState);
   const [cardData, setCardData] = useState(data);
-  const [droppableInputData, setDroppableInputdata] = useState();
 
   function onDragEnd(val) {
     // Your version
@@ -69,7 +62,6 @@ function App() {
         )
       : { ...sourceGroup };
 
-    setDroppableInputdata(destinationGroup.tasks);
     // We save the task we are moving
     const [movingTask] = sourceGroup.tasks.filter((t) => t.id === draggableId);
 
@@ -101,7 +93,7 @@ function App() {
 
     setTasks(newTaskList);
   }
-
+  console.log(taskList);
   return (
     <div>
       <DragDropContext onDragEnd={onDragEnd}>
@@ -143,9 +135,10 @@ function App() {
           </div>
           <div className="lastcontainer">
             <h3 className="heading">Action Tool Box</h3>
-            {droppableInputData ? (
+
+            {taskList[0].tasks.length ? (
               <>
-                {droppableInputData.map((item) => {
+                {taskList[0].tasks.map((item) => {
                   return <input value={item.title} />;
                 })}
               </>

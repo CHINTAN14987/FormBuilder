@@ -7,7 +7,7 @@ function Column(props) {
 
   let style = {
     width: "400px",
-    margin: "100px",
+    minHeight: "10rem",
   };
 
   return (
@@ -15,6 +15,7 @@ function Column(props) {
       {(provided) => (
         <div {...provided.droppableProps} ref={provided.innerRef} style={style}>
           {list.map((val, index) => {
+            console.log(list);
             return (
               <div style={{ margin: "10px" }}>
                 <Task
@@ -24,6 +25,7 @@ function Column(props) {
                   title={val.title}
                   image={val.image}
                   style={val.style}
+                  type={val.type}
                 />
               </div>
             );

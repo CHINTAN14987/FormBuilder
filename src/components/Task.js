@@ -1,13 +1,15 @@
 import React from "react";
 import { Draggable } from "react-beautiful-dnd";
+import "../components/Tasks.css";
 
 function Task(props) {
-  const { id, index, title, image, style } = props;
+  const { id, index, title, image, type, style } = props;
 
   return (
     <Draggable draggableId={id} index={index} type="TASK">
       {(provided) => (
         <div
+          style={{ margin: "10px" }}
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
@@ -20,20 +22,8 @@ function Task(props) {
               gap: "10px",
             }}
           >
-            <div
-              style={
-                style
-                  ? style
-                  : {
-                      border: "1px solid silver",
-                      display: "flex",
-                      justifyContent: "space-between",
-                      width: "100%",
-                      gap: "10px",
-                    }
-              }
-            >
-              {title.length > 0 && <h4>{title}</h4>}
+            <div className={type} style={style ? style : {}}>
+              {title && <h3>{title}</h3>}
               {image.image && (
                 <img src={image.image} alt="" style={{ width: "3rem" }} />
               )}
