@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
-import helper from "./helper_functions";
+import data from "./card.json";
+import "./App.css";
+import image from "./images/image1.png";
 
 import Column from "./components/Column";
 
@@ -8,21 +10,43 @@ function App() {
   let initialState = [
     {
       groupName: "Today",
-      tasks: [
-        { id: "1", title: "Test-1" },
-        { id: "2", title: "Test-2" },
-      ],
+      tasks: [],
     },
     {
       groupName: "Tomorrow",
       tasks: [
-        { id: "3", title: "Test-3" },
-        { id: "4", title: "Test-4" },
+        {
+          id: "3",
+          title: "Box",
+          image: { image },
+        },
+        {
+          id: "4",
+          title: "Circle",
+          image: "",
+          style: {
+            borderRadius: "50%",
+            backgroundColor: "black",
+            color: "white",
+          },
+        },
+        {
+          id: "5",
+          title: "Cut Edges Box",
+          image: "",
+          style: {
+            borderRadius: "40%",
+            backgroundColor: "black",
+            color: "yellow",
+          },
+        },
       ],
     },
   ];
 
   const [taskList, setTasks] = useState(initialState);
+  const [cardData, setCardData] = useState(data);
+  const [droppableInputData, setDroppableInputdata] = useState();
 
   function onDragEnd(val) {
     // Your version
@@ -45,10 +69,12 @@ function App() {
         )
       : { ...sourceGroup };
 
+    setDroppableInputdata(destinationGroup.tasks);
     // We save the task we are moving
     const [movingTask] = sourceGroup.tasks.filter((t) => t.id === draggableId);
 
     const newSourceGroupTasks = sourceGroup.tasks.splice(source.index, 1);
+
     const newDestinationGroupTasks = destinationGroup.tasks.splice(
       destination.index,
       0,
@@ -72,26 +98,67 @@ function App() {
       }
       return column;
     });
+
     setTasks(newTaskList);
   }
 
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
-      <div className="wrapper">
-        <Column
-          className="column"
-          droppableId="Today"
-          list={taskList[0].tasks}
-          type="TASK"
-        />
-        <Column
-          className="column"
-          droppableId="Tomorrow"
-          list={taskList[1].tasks}
-          type="TASK"
-        />
-      </div>
-    </DragDropContext>
+    <div>
+      <DragDropContext onDragEnd={onDragEnd}>
+        <div className="wrapper">
+          <div className="Col1">
+            <h3 className="heading">Tool Box</h3>
+            <Column
+              className="column"
+              droppableId="Tomorrow"
+              list={taskList[1].tasks}
+              type="TASK"
+            />
+          </div>
+          <div className="centerContainer">
+            <div className="centerLayout">
+              <div className="cardData">
+                <h3 className="heading">Patient Score Card</h3>
+                {Object.keys(cardData["cardData"]).map((item) => {
+                  return (
+                    <h3 className="appointmentDetails">
+                      {cardData["cardData"][item]}
+                    </h3>
+                  );
+                })}
+              </div>
+              <div className="dragableContent">
+                <Column
+                  className="column"
+                  droppableId="Today"
+                  list={taskList[0].tasks}
+                  type="TASK"
+                />
+              </div>
+            </div>
+            <div className="btn_wrapper">
+              <button className="btn">Back</button>
+              <button className="btn">Submit</button>
+            </div>
+          </div>
+          <div className="lastcontainer">
+            <h3 className="heading">Action Tool Box</h3>
+            {droppableInputData ? (
+              <>
+                {droppableInputData.map((item) => {
+                  return <input value={item.title} />;
+                })}
+              </>
+            ) : (
+              <p>
+                No Action for Droppable toolbox....! <br />
+                Drop Some Items
+              </p>
+            )}
+          </div>
+        </div>
+      </DragDropContext>
+    </div>
   );
 }
 

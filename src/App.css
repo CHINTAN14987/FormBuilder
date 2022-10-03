@@ -1,23 +1,101 @@
-.cardData {
-  flex: 1;
-  border: 1px solid black;
-}
-.cardData_Wrapper {
-  display: flex;
-  gap: 10px;
+.appointmentDetails{
+  border: 1px solid silver;
+  padding: 20px 10px;
+  border-radius: 10px;
+  margin: 10px 0;
 }
 
-.App {
-  width: 80%;
-  margin: auto;
-  border: 1px solid red;
-  height: 50vh;
+.appointmentDetails:nth-child(2)
+{
+  font-weight: 500;
+  font-size: 18px;
+  color: grey;
+  margin: 0;
+  
+}
+.appointmentDetails:nth-child(1), .appointmentDetails:nth-child(6){
+  margin: 0;
+}
+.appointmentDetails:nth-child(3), .appointmentDetails:nth-child(4), .appointmentDetails:nth-child(5){
+  font-weight: 500;
+  font-size: 18px;
 }
 
-.PatientID {
+.appointmentDetails:nth-child(8), .appointmentDetails:nth-child(9){
+  display: none;
+}
+.appointmentDetails:nth-child(7){
+  font-weight: 500;
+  font-size: 18px;
+  color: grey;
+  margin: 0;
+}
+.cardData{
+margin: auto;
+display: flex;
+flex-direction: column;
+min-height: 20rem;}
+.btn{
+  background-color: #2F0A6B;color: white;
+  font-size: 18px;
+  padding: 10px 20px;
+  border: none;
+}
+.btn_wrapper{
   display: flex;
   justify-content: space-between;
+  margin-top: 1rem;
 }
-.wrapper {
+.centerLayout{
   display: flex;
+  flex-direction: column;
+ 
+  margin: auto;
+
+}
+.dragableContent{
+  border: 1px solid silver;
+  border-radius: 10px;
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper{
+  display: flex;
+  gap:1rem;
+  justify-content:center ;
+
+  
+
+}
+.Col1{
+  background-color: none;
+  height: 20rem;
+  
+  border:1px solid silver;
+  padding: 10px 20px;
+}
+.lastcontainer{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.lastcontainer{ border: 1px solid silver;
+  padding: 20px 10px;
+  border-radius: 10px;
+flex:0.5
+}
+.lastcontainer >input {padding: 10px 20px;
+font-size: 20px;
+}
+.heading{
+ margin-top: 0;
+}
+.centerContainer{
+  border: 1px solid silver;
+  border-radius: 20px;
+  padding: 10px 20px;
+  width: 30rem;
+  
 }

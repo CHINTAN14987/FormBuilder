@@ -6,17 +6,9 @@ function Column(props) {
   const { droppableId, list, type } = props;
 
   let style = {
-    backgroundColor: "orange",
-    height: "300px",
     width: "400px",
     margin: "100px",
   };
-
-  console.log(
-    "type = ",
-    droppableId,
-    list.map((v) => v.id)
-  );
 
   return (
     <Droppable droppableId={droppableId} type={type}>
@@ -24,7 +16,16 @@ function Column(props) {
         <div {...provided.droppableProps} ref={provided.innerRef} style={style}>
           {list.map((val, index) => {
             return (
-              <Task id={val.id} key={val.id} index={index} title={val.title} />
+              <div style={{ margin: "10px" }}>
+                <Task
+                  id={val.id}
+                  key={val.id}
+                  index={index}
+                  title={val.title}
+                  image={val.image}
+                  style={val.style}
+                />
+              </div>
             );
           })}
 
