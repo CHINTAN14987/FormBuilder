@@ -14,26 +14,29 @@
   
 }
 .appointmentDetails:nth-child(1), .appointmentDetails:nth-child(6){
-  margin: 0;
-}
-.appointmentDetails:nth-child(3), .appointmentDetails:nth-child(4), .appointmentDetails:nth-child(5){
+ 
   font-weight: 500;
   font-size: 18px;
 }
-.appointmentDetails:nth-child(3){
+.appointmentDetails:nth-child(3), .appointmentDetails:nth-child(4){
+  font-weight: 500;
+  font-size: 18px;
+}
+.appointmentDetails:nth-child(3), .appointmentDetails:nth-child(5){
   font-weight: 500;
   font-size: 18px;
   margin: 0;
 }
 
-.appointmentDetails:nth-child(8), .appointmentDetails:nth-child(9){
+.appointmentDetails:nth-child(9){
   display: none;
 }
-.appointmentDetails:nth-child(7){
+.appointmentDetails:nth-child(7), .appointmentDetails:nth-child(8){
   font-weight: 500;
   font-size: 18px;
   color: grey;
   margin: 0;
+  
 }
 .cardData{
 
@@ -43,8 +46,11 @@ min-height: 20rem;}
 .btn{
   background-color: #2F0A6B;color: white;
   font-size: 18px;
+  font-weight: 600;
   padding: 10px 20px;
   border: none;
+
+
 }
 .btn_wrapper{
   display: flex;
@@ -70,6 +76,9 @@ min-height: 20rem;}
   display: flex;
   gap:1rem;
   justify-content:center ;
+  width: 90%;
+  margin: auto;
+  margin-top: 3rem;
 
   
 
@@ -92,7 +101,11 @@ min-height: 20rem;}
 flex:0.5
 }
 .lastcontainer >input {padding: 10px 20px;
-font-size: 20px;
+font-size: 15px;
+font-weight: 600;
+}
+.lastcontainer>input:focus{
+  outline-color: red;
 }
 .heading{
  margin-top: 0;

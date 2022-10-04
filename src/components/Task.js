@@ -14,14 +14,7 @@ function Task(props) {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
         >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              padding: " 0 2rem",
-              gap: "10px",
-            }}
-          >
+          <div className="draggable_Container">
             <div className={type} style={style ? style : {}}>
               {title && <h3>{title}</h3>}
               {image.image && (

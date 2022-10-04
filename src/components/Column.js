@@ -8,6 +8,10 @@ function Column(props) {
   let style = {
     width: "400px",
     minHeight: "10rem",
+    display: "flex",
+    flexDirection: "column",
+    gap: "2rem",
+    paddingBottom: "3rem",
   };
 
   return (

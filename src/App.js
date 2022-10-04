@@ -34,6 +34,7 @@ function App() {
           image: "",
         },
         { id: "6", title: "Triangle", image: "", type: "Triangle" },
+        { id: "7", title: "Star", image: "", type: "star" },
       ],
     },
   ];
@@ -120,12 +121,17 @@ function App() {
                 })}
               </div>
               <div className="dragableContent">
-                <Column
-                  className="column"
-                  droppableId="Today"
-                  list={taskList[0].tasks}
-                  type="TASK"
-                />
+                {taskList[0].tasks.length ? (
+                  <Column
+                    className="column"
+                    droppableId="Today"
+                    list={taskList[0].tasks}
+                    type="TASK"
+                  />
+                ) : (
+                  <p>Drag the Shapes Here...!</p>
+                )}
+                {console.log(taskList[0].tasks)}
               </div>
             </div>
             <div className="btn_wrapper">
@@ -139,7 +145,7 @@ function App() {
             {taskList[0].tasks.length ? (
               <>
                 {taskList[0].tasks.map((item) => {
-                  return <input value={item.title} />;
+                  return <input value={item.title} autoFocus="true" />;
                 })}
               </>
             ) : (
