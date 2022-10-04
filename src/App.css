@@ -117,3 +117,10 @@ font-weight: 600;
  flex:1
   
 }
+.mainContainer{
+  text-align: center;
+}
+.mainContainer h3{
+  font-size: 30px;
+  font-weight: 800;
+}

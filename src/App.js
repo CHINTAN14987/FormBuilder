@@ -96,7 +96,8 @@ function App() {
   }
   console.log(taskList);
   return (
-    <div>
+    <div className="mainContainer">
+      <h3>Drag & Drop</h3>
       <DragDropContext onDragEnd={onDragEnd}>
         <div className="wrapper">
           <div className="Col1">
@@ -121,17 +122,12 @@ function App() {
                 })}
               </div>
               <div className="dragableContent">
-                {taskList[0].tasks.length ? (
-                  <Column
-                    className="column"
-                    droppableId="Today"
-                    list={taskList[0].tasks}
-                    type="TASK"
-                  />
-                ) : (
-                  <p>Drag the Shapes Here...!</p>
-                )}
-                {console.log(taskList[0].tasks)}
+                <Column
+                  className="column"
+                  droppableId="Today"
+                  list={taskList[0].tasks}
+                  type="TASK"
+                />
               </div>
             </div>
             <div className="btn_wrapper">

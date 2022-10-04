@@ -43,8 +43,8 @@ margin: auto;
   }
 
   .star {
-    margin: 50px 0;
-    margin-top: 5rem;
+  
+    
     position: relative;
     display: block;
     color: red;
@@ -55,6 +55,7 @@ margin: auto;
     border-left: 100px solid transparent;
     transform: rotate(35deg);
     margin: auto;
+    margin-top: 2rem;
   }
   .star:before {
     border-bottom: 80px solid red;
