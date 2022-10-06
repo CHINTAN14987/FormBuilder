@@ -39,6 +39,39 @@ function App() {
           options: ["option1", "option2", "option3"],
           editable: true,
         },
+        {
+          id: "5",
+          subtype: "input",
+          type: "checkbox",
+          options: ["checkbox1", "checkbox2", "checkbox3"],
+          editable: true,
+        },
+        {
+          id: "6",
+          subtype: "input",
+          type: "date",
+          editable: false,
+        },
+        {
+          id: "7",
+          subtype: "input",
+          type: "month",
+          editable: false,
+        },
+        {
+          id: "8",
+          subtype: "progress",
+          type: "circle",
+          percent: "75",
+          editable: false,
+        },
+        {
+          id: "9",
+          subtype: "progress",
+
+          percent: "75",
+          editable: false,
+        },
       ],
     },
   ];
@@ -125,22 +158,6 @@ function App() {
               </div>
             </div>
           </div>
-          {/* <div className="lastcontainer">
-            <h3 className="heading">Action Tool Box</h3>
-
-            {taskList[0].tasks.length ? (
-              <>
-                {taskList[0].tasks.map((item) => {
-                  return <input value={item.title} autoFocus="true" />;
-                })}
-              </>
-            ) : (
-              <p>
-                No Action for Droppable toolbox....! <br />
-                Drop Some Items
-              </p>
-            )}
-          </div> */}
         </div>
       </DragDropContext>
     </div>
@@ -148,56 +165,3 @@ function App() {
 }
 
 export default App;
-
-// function App() {
-//   const [Data, setData] = useState(data);
-//   const dragEnd = (result) => {
-//     const newBox = Array.from(Data);
-//     const [draggedItem] = newBox.splice(result.source.index - 1);
-//     newBox.splice(result.destination.index, 0, draggedItem);
-//     setData(newBox);
-//   };
-//   return (
-//     <DragDropContext onDragEnd={dragEnd}>
-//       <div className="App">
-//         <Column data={Data} />
-
-//         <div>
-{
-  /* {data.cardLayout.body[0].tileComponent.map((item) => {
-          return (
-            <div className="PatientID">
-              <span>ID:</span>
-              <span>{item.id}</span>
-              <div>
-                {item.subView.map((titleItem) => {
-                  return (
-                    <div>
-                      {console.log(titleItem.title.text)}
-                      <span>Title</span>
-                      <span>{titleItem.title.text}</span>
-                      <span></span>
-                    </div>
-                  );
-                })}
-              </div>
-              <div>
-                {Object.keys(data.cardUIAction).map((item) => {
-                  return (
-                    <div>
-                      <span>Action:</span>
-                      <span>{data.cardUIAction[item].action}</span>
-                    </div>
-                  );
-                })}
-                {console.log(Object.keys(data.cardUIAction))}
-              </div>
-            </div>
-          );
-        })} */
-}
-//         </div>
-//       </div>
-//     </DragDropContext>
-//   );
-// }

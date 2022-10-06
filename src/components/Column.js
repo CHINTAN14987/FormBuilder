@@ -19,7 +19,6 @@ function Column(props) {
       {(provided) => (
         <div {...provided.droppableProps} ref={provided.innerRef} style={style}>
           {list.map((val, index) => {
-            console.log(list);
             return (
               <div style={{ margin: "10px" }}>
                 <Task
@@ -30,6 +29,7 @@ function Column(props) {
                   label={val.label}
                   type={val.type}
                   options={val.options}
+                  percent={val.percent}
                 />
               </div>
             );

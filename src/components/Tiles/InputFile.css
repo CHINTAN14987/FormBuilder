@@ -1,0 +1,16 @@
+.inputTile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
+   
+}
+.inputTile_Inner_Content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+}
+.inputTile input{
+    margin: 0;
+}
