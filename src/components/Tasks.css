@@ -86,7 +86,27 @@ margin: auto;
   }
   .draggable_Container{
     display: flex;
-    flex-direction: column;
+     column-gap: 20px;
     align-items: center;
     justify-content: center;
   }
+button{
+  width: 5rem;
+  height: 3rem;
+  padding: 10px ;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  background-color: darkblue;
+  color: white;
+}
+ p{
+  flex:1;
+  border: 1px solid silver;
+  padding:10px
+ }
+ h2{flex:1;
+  border: 1px solid silver;
+  padding:10px;
+font-weight: 500;
+font-size: 18px;}

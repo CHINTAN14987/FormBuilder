@@ -26,10 +26,10 @@ function Column(props) {
                   id={val.id}
                   key={val.id}
                   index={index}
-                  title={val.title}
-                  image={val.image}
-                  style={val.style}
+                  subType={val.subtype}
+                  label={val.label}
                   type={val.type}
+                  options={val.options}
                 />
               </div>
             );

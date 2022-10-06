@@ -4,6 +4,8 @@ import data from "./card.json";
 import "./App.css";
 import image from "./images/image1.png";
 
+import { PhoneOutlined } from "@ant-design/icons";
+
 import Column from "./components/Column";
 
 function App() {
@@ -16,25 +18,27 @@ function App() {
       groupName: "Tomorrow",
       tasks: [
         {
-          id: "3",
-          title: "Box",
-          image: { image },
-          type: "Box",
+          id: "1",
+          label: "Title",
+          subtype: "h2",
+          editable: false,
         },
         {
-          id: "4",
-          title: "Circle",
-          image: "",
-          type: "Circle",
+          id: "2",
+
+          label: "Sub Title",
+          subtype: "p",
+          editable: false,
         },
+        { id: "3", label: "Submit", subtype: "button", name: "submit" },
+        { id: "4", label: "Back", subtype: "button", name: "back" },
         {
           id: "5",
-          title: "Cut Edges Box",
-          type: "EdgeBox",
-          image: "",
+          subtype: "input",
+          type: "radio",
+          options: ["option1", "option2", "option3"],
+          editable: true,
         },
-        { id: "6", title: "Triangle", image: "", type: "Triangle" },
-        { id: "7", title: "Star", image: "", type: "star" },
       ],
     },
   ];
@@ -111,16 +115,6 @@ function App() {
           </div>
           <div className="centerContainer">
             <div className="centerLayout">
-              <div className="cardData">
-                <h3 className="heading">Patient Score Card</h3>
-                {Object.keys(cardData["cardData"]).map((item) => {
-                  return (
-                    <h3 className="appointmentDetails">
-                      {cardData["cardData"][item]}
-                    </h3>
-                  );
-                })}
-              </div>
               <div className="dragableContent">
                 <Column
                   className="column"
@@ -130,12 +124,8 @@ function App() {
                 />
               </div>
             </div>
-            <div className="btn_wrapper">
-              <button className="btn">Back</button>
-              <button className="btn">Submit</button>
-            </div>
           </div>
-          <div className="lastcontainer">
+          {/* <div className="lastcontainer">
             <h3 className="heading">Action Tool Box</h3>
 
             {taskList[0].tasks.length ? (
@@ -150,7 +140,7 @@ function App() {
                 Drop Some Items
               </p>
             )}
-          </div>
+          </div> */}
         </div>
       </DragDropContext>
     </div>

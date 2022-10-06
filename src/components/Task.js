@@ -3,7 +3,7 @@ import { Draggable } from "react-beautiful-dnd";
 import "../components/Tasks.css";
 
 function Task(props) {
-  const { id, index, title, image, type, style } = props;
+  const { id, index, type, subType, label, options } = props;
 
   return (
     <Draggable draggableId={id} index={index} type="TASK">
@@ -15,12 +15,19 @@ function Task(props) {
           {...provided.dragHandleProps}
         >
           <div className="draggable_Container">
-            <div className={type} style={style ? style : {}}>
-              {title && <h3>{title}</h3>}
-              {image.image && (
-                <img src={image.image} alt="" style={{ width: "3rem" }} />
-              )}
-            </div>
+            {console.log(options)}
+            {subType !== "input" && React.createElement(subType, {}, label)}
+            {options?.map((item, index) => {
+              return (
+                <div key={index} className="inputcheckbox1">
+                  {React.createElement(subType, { type: type }, label)}
+                  {React.createElement("label", {}, item)}
+                </div>
+              );
+            })}
+            {/* <div className={type} style={style ? style : {}}>
+            
+            </div> */}
           </div>
         </div>
       )}
