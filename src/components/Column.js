@@ -16,22 +16,22 @@ function Column(props) {
 
   return (
     <Droppable droppableId={droppableId} type={type}>
-      {(provided) => (
+      {(provided, snapshot) => (
         <div {...provided.droppableProps} ref={provided.innerRef} style={style}>
           {list.map((val, index) => {
+            const shouldRenderClone = val.id === snapshot.draggingFromThisWith;
             return (
-              <div style={{ margin: "10px" }}>
-                <Task
-                  id={val.id}
-                  key={val.id}
-                  index={index}
-                  subType={val.subtype}
-                  label={val.label}
-                  type={val.type}
-                  options={val.options}
-                  percent={val.percent}
-                />
-              </div>
+              <Task
+                id={val.id}
+                key={val.id}
+                index={index}
+                subType={val.subtype}
+                label={val.label}
+                type={val.type}
+                options={val.options}
+                percent={val.percent}
+                shouldRenderClone={shouldRenderClone}
+              />
             );
           })}
 

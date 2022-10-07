@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import data from "./card.json";
 import "./App.css";
@@ -7,6 +7,9 @@ import image from "./images/image1.png";
 import { PhoneOutlined } from "@ant-design/icons";
 
 import Column from "./components/Column";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { action } from "./redux/reducerSlice";
 
 function App() {
   let initialState = [
@@ -40,7 +43,7 @@ function App() {
           editable: true,
         },
         {
-          id: "5",
+          id: "10",
           subtype: "input",
           type: "checkbox",
           options: ["checkbox1", "checkbox2", "checkbox3"],
@@ -75,10 +78,22 @@ function App() {
       ],
     },
   ];
+  const formValue = useSelector((state) => state.taskList);
+  const newFormValue =
+    formValue.length > 0 && formValue.map(({ ...rest }) => rest);
+  const [taskList, setTasks] = useState(formValue);
 
-  const [taskList, setTasks] = useState(initialState);
-  const [cardData, setCardData] = useState(data);
-
+  const dispatch = useDispatch();
+  console.log("initialState==========>>", initialState);
+  console.log("formValue==========>>", formValue);
+  console.log("taskList==========>>", taskList);
+  // useEffect(() => {
+  //   console.log("useEffect >> formValue", formValue);
+  //   setTasks((prv) => {
+  //     return formValue;
+  //   });
+  //   console.log("useEffect >> taskList", taskList);
+  // });
   function onDragEnd(val) {
     // Your version
     // let result = helper.reorder(val.source, val.destination, taskList);
@@ -130,8 +145,12 @@ function App() {
     });
 
     setTasks(newTaskList);
+    console.log("----------newTaskList", newTaskList);
+    dispatch({ action: "formreducer1", payload: newTaskList });
+    // dispatch();
+    console.log("----------newTaskList", newTaskList);
   }
-  console.log(taskList);
+  console.log(taskList, "tasklist");
   return (
     <div className="mainContainer">
       <h3>Drag & Drop</h3>
