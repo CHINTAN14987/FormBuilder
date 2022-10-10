@@ -80,12 +80,10 @@ function App() {
   //   },
   //];
   const formValue = useSelector((state) => state.taskList);
-  const draggableTask = useSelector((state) => state.draggableTask);
 
   const dispatch = useDispatch();
 
   console.log("formValue==========>>", formValue);
-  console.log("dradd==========>>", draggableTask);
 
   // useEffect(() => {
   //   console.log("useEffect >> formValue", formValue);

@@ -78,7 +78,7 @@ const reducerSlice = createSlice({
       const [sourceGroup] = state.taskList.filter(
         (column) => column.groupName === source.droppableId
       );
-
+      console.log(current(sourceGroup));
       const [destinationGroup] = destination
         ? state.taskList.filter(
             (column) => column.groupName === destination.droppableId
@@ -88,6 +88,7 @@ const reducerSlice = createSlice({
       const [movingTask] = sourceGroup.tasks.filter(
         (t) => t.id === draggableId
       );
+      console.log(current(movingTask));
       console.log(current(movingTask, "destination"));
       const newSourceGroupTasks = sourceGroup.tasks.splice(source.index, 1);
 
@@ -125,20 +126,24 @@ const reducerSlice = createSlice({
           return item;
         }
       });
-      state = {
+      // console.log(current(state), "state");
+      console.log(state);
+      return {
         ...state,
         taskList: [
-          ...state.taskList,
+          // ...state.taskList,
           {
             ...state.taskList[0],
-            tasks: [
-              ...state.taskList[0].tasks,
-              {
-                ...state.taskList[0].tasks[0],
-                updatedData,
-              },
-            ],
+            // tasks: [
+            //   ...current(state).taskList[0].tasks,
+            //   {
+            //     ...current(state).taskList[0].tasks[0],
+            //     updatedData,
+            //   },
+            // ],
+            tasks: updatedData,
           },
+          state.taskList[1],
         ],
       };
     },
