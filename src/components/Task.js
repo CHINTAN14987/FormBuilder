@@ -11,14 +11,16 @@ function Task(props) {
 
   return (
     <Draggable draggableId={id} index={index} type="TASK">
-      {(provided) => (
-        <div
-          style={{ margin: "10px" }}
-          ref={provided.innerRef}
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
-        >
-          <div className="draggable_Container">
+      {(provided, snapshot) => (
+        <>
+          <div
+            className="draggable_Container"
+            style={{ margin: "10px" }}
+            ref={provided.innerRef}
+            {...provided.draggableProps}
+            {...provided.dragHandleProps}
+          >
+            {<h3>{label}</h3>}
             {subType === "input" && (
               <InputTile labelOptions={options} type={type} />
             )}
@@ -30,7 +32,21 @@ function Task(props) {
               <ProgessTile type={type} percent={percent} />
             )}
           </div>
-        </div>
+          {/* {snapshot.isDragging && (
+            <div className="one">
+              {subType === "input" && (
+                <InputTile labelOptions={options} type={type} />
+              )}
+              {subType === "input" && <InputSelect type={type} />}
+              {subType === "button" && (
+                <ButtonTile label={label} subType={subType} />
+              )}
+              {subType === "progress" && (
+                <ProgessTile type={type} percent={percent} />
+              )}
+            </div>
+          )} */}
+        </>
       )}
     </Draggable>
   );

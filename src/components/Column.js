@@ -19,7 +19,6 @@ function Column(props) {
       {(provided, snapshot) => (
         <div {...provided.droppableProps} ref={provided.innerRef} style={style}>
           {list.map((val, index) => {
-            const shouldRenderClone = val.id === snapshot.draggingFromThisWith;
             return (
               <Task
                 id={val.id}
@@ -30,7 +29,6 @@ function Column(props) {
                 type={val.type}
                 options={val.options}
                 percent={val.percent}
-                shouldRenderClone={shouldRenderClone}
               />
             );
           })}
