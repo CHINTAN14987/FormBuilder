@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { action } from "../redux/reducerSlice";
+import "../App.css";
 
 const Editor = () => {
   const draggableTask = useSelector((state) => state.taskList[0].tasks[0]);
@@ -9,14 +10,15 @@ const Editor = () => {
   const disptach = useDispatch();
   console.log(draggableTask, "drgabletask");
   const ChangeHandler = (e) => {
-    disptach(action.formreducer2({ data: { label: e }, id: draggableTask.id }));
+    disptach(action.formreducer2({ data: { value: e }, id: draggableTask.id }));
   };
-  console.log(useSelector((state) => state.taskList[0].tasks.length));
+
   return (
     <div>
-      {draggableTask && (
+      <h3 className="heading">Action Box</h3>
+      {draggableTask && draggableTask.editable && (
         <input
-          value={draggableTask?.label}
+          value={draggableTask?.value}
           onChange={(e) => {
             ChangeHandler(e.target.value);
           }}

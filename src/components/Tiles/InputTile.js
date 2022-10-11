@@ -1,17 +1,18 @@
 import React from "react";
 import "./InputFile.css";
 
-const InputTile = ({ type, labelOptions }) => {
+const InputTile = ({
+  type,
+  subtype,
+  label,
+  options,
+  percent,
+  editable,
+  value,
+}) => {
   return (
     <div className="inputTile">
-      {labelOptions?.map((optionItem, index) => {
-        return (
-          <div key={index} className="inputTile_Inner_Content">
-            <input type={type} />
-            <span>{optionItem}</span>
-          </div>
-        );
-      })}
+      <input type={subtype} placeholder={value && value} />
     </div>
   );
 };

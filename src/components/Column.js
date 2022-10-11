@@ -24,11 +24,13 @@ function Column(props) {
                 id={val.id}
                 key={val.id}
                 index={index}
-                subType={val.subtype}
+                subtype={val.subtype}
                 label={val.label}
                 type={val.type}
                 options={val.options}
                 percent={val.percent}
+                content={val.content}
+                value={val.value}
               />
             );
           })}

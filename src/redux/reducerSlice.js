@@ -11,58 +11,74 @@ const initialState = {
       tasks: [
         {
           id: "1",
-          label: "Title",
-          subtype: "h2",
+          value: "Title",
+          subtype: "input",
+          type: "inputField",
+          editable: true,
+        },
+
+        // {
+        //   id: "2",
+
+        //   label: "Sub Title",
+        //   subtype: "p",
+        //   editable: false,
+        // },
+
+        {
+          id: "4",
+          label: "Back",
+          subtype: "button",
+          type: "backButton",
           editable: false,
         },
         {
-          id: "2",
-
-          label: "Sub Title",
-          subtype: "p",
+          id: "3",
+          label: "Submit",
+          subtype: "button",
+          type: "submitButton",
           editable: false,
         },
-        { id: "3", label: "Submit", subtype: "button", name: "submit" },
-        { id: "4", label: "Back", subtype: "button", name: "back" },
         {
           id: "10",
-          subtype: "input",
-          type: "radio",
-          options: ["option1", "option2", "option3"],
+          subtype: "checkbox",
+          type: "checkboxField",
+          options: "option",
           editable: true,
         },
         {
           id: "5",
-          subtype: "input",
-          type: "checkbox",
-          options: ["checkbox1", "checkbox2", "checkbox3"],
+          subtype: "radio",
+          type: "radioField",
+          options: ["title", "title", "title", "title"],
           editable: true,
         },
         {
           id: "6",
-          subtype: "input",
-          type: "date",
+          subtype: "date",
+          type: "dateInputPicker",
           editable: false,
         },
         {
           id: "7",
-          subtype: "input",
-          type: "month",
+          subtype: "month",
+          type: "monthInputPicker",
           editable: false,
         },
+
         {
           id: "8",
-          subtype: "progress",
-          type: "circle",
-          percent: "75",
-          editable: false,
+          subtype: "circle",
+          type: "circlularProgressBarField",
+          percent: "50",
+          editable: true,
         },
         {
           id: "9",
           subtype: "progress",
-
+          type: "horizontalProgressBarField",
           percent: "75",
-          editable: false,
+          editable: true,
         },
       ],
     },
@@ -75,10 +91,11 @@ const reducerSlice = createSlice({
   reducers: {
     formreducer1: (state, action) => {
       const { draggableId, source, destination } = action.payload;
+
       const [sourceGroup] = state.taskList.filter(
         (column) => column.groupName === source.droppableId
       );
-      console.log(current(sourceGroup));
+
       const [destinationGroup] = destination
         ? state.taskList.filter(
             (column) => column.groupName === destination.droppableId
@@ -88,8 +105,7 @@ const reducerSlice = createSlice({
       const [movingTask] = sourceGroup.tasks.filter(
         (t) => t.id === draggableId
       );
-      console.log(current(movingTask));
-      console.log(current(movingTask, "destination"));
+
       const newSourceGroupTasks = sourceGroup.tasks.splice(source.index, 1);
 
       const newDestinationGroupTasks = destinationGroup.tasks.splice(
@@ -126,21 +142,13 @@ const reducerSlice = createSlice({
           return item;
         }
       });
-      // console.log(current(state), "state");
-      console.log(state);
+
       return {
         ...state,
         taskList: [
-          // ...state.taskList,
           {
             ...state.taskList[0],
-            // tasks: [
-            //   ...current(state).taskList[0].tasks,
-            //   {
-            //     ...current(state).taskList[0].tasks[0],
-            //     updatedData,
-            //   },
-            // ],
+
             tasks: updatedData,
           },
           state.taskList[1],

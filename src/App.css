@@ -43,15 +43,7 @@
 display: flex;
 flex-direction: column;
 min-height: 20rem;}
-.btn{
-  background-color: #2F0A6B;color: white;
-  font-size: 18px;
-  font-weight: 600;
-  padding: 10px 20px;
-  border: none;
 
-
-}
 .btn_wrapper{
   display: flex;
   justify-content: space-between;
@@ -109,6 +101,13 @@ font-weight: 600;
 }
 .heading{
  margin-top: 0;
+ font-family: 'SF Pro Text';
+font-style: normal;
+font-weight: 600;
+font-size: 25px;
+line-height: 17px;
+letter-spacing: -0.006em;
+margin-top: 2rem;
 }
 .centerContainer{
   border: 1px solid silver;
@@ -120,10 +119,35 @@ font-weight: 600;
 .mainContainer{
   text-align: center;
 }
-.mainContainer h3{
-  font-size: 30px;
-  font-weight: 800;
-}
+.heading{
+  margin-top: 0;
+  font-family: 'SF Pro Text';
+ font-style: normal;
+ font-weight: 600;
+ font-size: 25px;
+ line-height: 17px;
+ letter-spacing: -0.006em;
+ margin-top: 1rem;
+ margin-bottom: 2rem;
+ }
 .one {
  display: none !important;
+}
+
+
+.checkboxField{display: flex;
+  column-gap: 10px;align-items: center;
+  justify-content: space-between;
+  border: 1px solid #E9E2F4;
+border-radius: 18px;
+width: 15rem;
+padding: 5px 20px;
+color: #2F0A6B;
+font-family: 'SF Pro Text';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+letter-spacing: -0.006em;
+
 }
