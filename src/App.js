@@ -23,11 +23,11 @@ function App() {
 
   return (
     <div className="mainContainer">
-      <h3>Form Builder</h3>
+      <h3 className="top_heading">Form Builder</h3>
       <DragDropContext onDragEnd={onDragEnd}>
         <div className="wrapper">
           <div className="Col1">
-            <h3 className="heading"> UI Tool Box</h3>
+            <h3 className="heading"> Style</h3>
             <Column
               className="column"
               droppableId="Drop"
@@ -38,7 +38,7 @@ function App() {
           <div className="centerContainer">
             <div className="centerLayout">
               <div className="dragableContent">
-                <h3 className="heading">Card</h3>
+                <h3 className="heading">Care.Card</h3>
                 <Column
                   className="column"
                   droppableId="Drag"

@@ -1,10 +1,6 @@
 import React from "react";
 import { Draggable } from "react-beautiful-dnd";
 import "../components/Tasks.css";
-// import ButtonTile from "./Tiles/ButtonTile";
-// import InputSelect from "./Tiles/InputSelect";
-// import InputTile from "./Tiles/InputTile";
-// import ProgressTile from "./Tiles/ProgressTile";
 import Tiles from "./Tiles/Tiles";
 
 function Task(props) {
@@ -20,6 +16,12 @@ function Task(props) {
             ref={provided.innerRef}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
+            style={{
+              ...provided.draggableProps.style,
+              transform: snapshot.isDragging
+                ? provided.draggableProps.style?.transform
+                : "translate(0px, 0px)",
+            }}
           >
             <Tiles
               type={type}
@@ -31,8 +33,8 @@ function Task(props) {
               value={value}
             />
           </div>
-          {/* {snapshot.isDragging && (
-            <div className="hello">
+          {snapshot.isDragging && (
+            <div style={{ transform: "none !important" }}>
               <Tiles
                 type={type}
                 subtype={subtype}
@@ -43,7 +45,7 @@ function Task(props) {
                 value={value}
               />
             </div>
-          )} */}
+          )}
           {/* {snapshot.isDragging && (
             <div className="one">
               {subType === "input" && (

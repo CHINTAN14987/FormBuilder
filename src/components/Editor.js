@@ -14,8 +14,8 @@ const Editor = () => {
   };
 
   return (
-    <div>
-      <h3 className="heading">Action Box</h3>
+    <div className="lastcontainer">
+      <h3 className="heading">Properties / Events</h3>
       {draggableTask && draggableTask.editable && (
         <input
           value={draggableTask?.value}

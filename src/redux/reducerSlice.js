@@ -106,7 +106,7 @@ const reducerSlice = createSlice({
         (t) => t.id === draggableId
       );
 
-      const newSourceGroupTasks = sourceGroup.tasks.slice(source.index, 1);
+      const newSourceGroupTasks = sourceGroup.tasks.splice(source.index, 1);
 
       const newDestinationGroupTasks = destinationGroup.tasks.splice(
         destination.index,

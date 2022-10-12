@@ -81,6 +81,7 @@ min-height: 20rem;}
   flex:0.5;
   border:1px solid silver;
   padding: 10px 20px;
+  border-radius: 10px;
 }
 .lastcontainer{
   display: flex;
@@ -118,6 +119,17 @@ margin-top: 2rem;
 }
 .mainContainer{
   text-align: center;
+}
+.top_heading{
+
+  font-family: 'SF Pro Text';
+ font-style: normal;
+ font-weight: 900;
+ font-size: 40px;
+ line-height: 17px;
+ letter-spacing: -0.006em;
+ margin-top: 2rem;
+ margin-bottom: 2rem;
 }
 .heading{
   margin-top: 0;
