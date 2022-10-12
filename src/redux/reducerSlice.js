@@ -1,4 +1,4 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   taskList: [
@@ -16,14 +16,6 @@ const initialState = {
           type: "inputField",
           editable: true,
         },
-
-        // {
-        //   id: "2",
-
-        //   label: "Sub Title",
-        //   subtype: "p",
-        //   editable: false,
-        // },
 
         {
           id: "4",

@@ -46,20 +46,6 @@ function Task(props) {
               />
             </div>
           )}
-          {/* {snapshot.isDragging && (
-            <div className="one">
-              {subType === "input" && (
-                <InputTile labelOptions={options} type={type} />
-              )}
-              {subType === "input" && <InputSelect type={type} />}
-              {subType === "button" && (
-                <ButtonTile label={label} subType={subType} />
-              )}
-              {subType === "progress" && (
-                <ProgessTile type={type} percent={percent} />
-              )}
-            </div>
-          )} */}
         </>
       )}
     </Draggable>
